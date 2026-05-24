@@ -4,7 +4,7 @@ namespace ecommerce.api.endpoints;
 
 public static class ProductEndpoints
 {
-    public static void MapProductsEndpoints(this WebApplication app)
+    public static void MapProductsEndpoints(this IEndpointRouteBuilder app)
     {
         app.MapGet("/products", GetProducts);
 
