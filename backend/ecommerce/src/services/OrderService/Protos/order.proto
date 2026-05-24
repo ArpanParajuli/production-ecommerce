@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option csharp_namespace = "OrderService";
+
+package order;
+
+
+
+service Order {
+  rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse);
+}
+
+
+message CreateOrderRequest {
+  string UserId = 1;
+  string  UserName = 2;
+  string  ProductId = 3;
+  string  ProductName = 4;
+  string  ProductDescription = 5;
+  int32 ProductQuantity = 6;
+  float  Price = 8;
+}
+
+
+message CreateOrderResponse {
+  string OrderId = 1;
+  string UserId = 2;
+  string  UserName = 3;
+  string  ProductId = 4;
+  string  ProductName = 5;
+  string  ProductDescription = 6;
+  int32 ProductQuantity = 7;
+  float  Price = 8;
+  string DeliverDate = 9;
+  bool IsVerified = 10;
+
+}
+
