@@ -6,27 +6,28 @@ package order;
 
 
 
-service Order {
+service OrderServiceGrpc {
   rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse);
 }
 
 
 message CreateOrderRequest {
-  string UserId = 1;
+  int32 UserId = 1;
   string  UserName = 2;
-  string  ProductId = 3;
-  string  ProductName = 4;
-  string  ProductDescription = 5;
-  int32 ProductQuantity = 6;
+  string  UserEmail = 3;
+  int32  ProductId = 4;
+  string  ProductName = 5;
+  string  ProductDescription = 6;
+  int32 ProductQuantity = 7;
   float  Price = 8;
 }
 
 
 message CreateOrderResponse {
-  string OrderId = 1;
-  string UserId = 2;
+  int32 OrderId = 1;
+  int32 UserId = 2;
   string  UserName = 3;
-  string  ProductId = 4;
+  int32  ProductId = 4;
   string  ProductName = 5;
   string  ProductDescription = 6;
   int32 ProductQuantity = 7;

@@ -11,7 +11,7 @@ services:
 
      container_name: ecommerce_keycloak_db
      ports:
-          - "5432:5432"
+          - "5433:5432"
 
      volumes:
        - keycloak_db_data:/var/lib/postgresql/data
@@ -22,7 +22,7 @@ services:
      image: postgres:16
      container_name: ecommerce_db
      ports:
-          - "5432:5432"
+          - "5434:5432"
      environment:
         POSTGRES_DB: ecommerce
         POSTGRES_USER: ecommerce
@@ -30,3 +30,7 @@ services:
 
      volumes:
      - ecommerce_db_data:/var/lib/postgresql/data
+
+volumes:
+   keycloak_db_data:
+   ecommerce_db_data:

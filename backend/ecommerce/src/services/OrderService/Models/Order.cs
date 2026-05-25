@@ -33,4 +33,34 @@ public class Order
     public bool IsShipped { get; set; }
     
     public bool IsCompleted { get; set; }
+
+
+
+    public Order(
+        int userId,
+        string userName,
+        string userEmail,
+        int productId,
+        string productName,
+        string productDescription,
+        int quantity,
+        decimal totalPrice)
+    {
+        UserId = userId;
+        UserName = userName;
+        UserEmail = userEmail;
+        ProductId = productId;
+        ProductName = productName;
+        ProductDescription = productDescription;
+        Quantity = quantity;
+        TotalPrice = totalPrice;
+
+        OrderDate = DateTime.UtcNow;
+        DeliveryDate = DateTime.UtcNow.AddDays(7);
+
+        IsVerified = false;
+        IsPaid = false;
+        IsShipped = false;
+        IsCompleted = false;
+    }
 }

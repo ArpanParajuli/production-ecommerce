@@ -29,6 +29,6 @@ public static class ProductEndpoints
 
     static IResult GetProducts()
     {
-        return Results.Json(("prodcuts"));
+        return Results.Json(("products"));
     }
 }
