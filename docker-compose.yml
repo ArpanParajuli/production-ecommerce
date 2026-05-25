@@ -2,14 +2,17 @@
 services:
   
 
-  keyclaokdb:
+  keycloakdb:
      image: postgres:16
      environment:
+
         POSTGRES_DB: keycloak
         POSTGRES_USER: keycloak
         POSTGRES_PASSWORD: keycloak
 
      container_name: ecommerce_keycloak_db
+
+     
      ports:
           - "5433:5432"
 
@@ -30,6 +33,28 @@ services:
 
      volumes:
      - ecommerce_db_data:/var/lib/postgresql/data
+
+
+  keycloak:
+        image: quay.io/keycloak/keycloak:26.6.2
+        container_name: ecommerce_keycloak
+        command: start-dev 
+        ports:
+          - "8080:8080"
+        environment:
+         KC_BOOTSTRAP_ADMIN_USERNAME : admin
+         KC_BOOTSTRAP_ADMIN_PASSWORD : admin
+         KC_DB: postgres
+         KC_DB_URL_HOST: keycloakdb
+         KC_DB_URL_PORT: 5432
+         KC_DB_URL_DATABASE: keycloak
+         KC_DB_USERNAME: keycloak
+         KC_DB_PASSWORD: keycloak
+         KC_HOSTNAME: localhost
+         KC_HTTP_PORT: 8080
+
+        depends_on:
+          - keycloakdb
 
 volumes:
    keycloak_db_data:
