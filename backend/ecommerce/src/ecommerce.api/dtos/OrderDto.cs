@@ -1,6 +1,6 @@
 namespace ecommerce.api.dtos;
 
-public record CreateOrderDto();
+public record CreateOrderDto(int ProductId, string ProductName , string ProductDescription, float UnitPrice ,int Quantity);
 
 public record UpdateOrderDto(
     Guid OrderId

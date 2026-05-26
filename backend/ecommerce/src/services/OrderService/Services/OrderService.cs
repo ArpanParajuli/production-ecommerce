@@ -37,7 +37,7 @@ public class OrderGrpcsService : OrderServiceGrpc.OrderServiceGrpcBase
         await _context.Orders.AddAsync(order);
         await _context.SaveChangesAsync();
         
-        Console.WriteLine("Order created in db");
+        Console.WriteLine("Order created in db called by backend ");
 
         return new CreateOrderResponse
         {
