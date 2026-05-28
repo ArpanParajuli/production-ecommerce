@@ -33,8 +33,6 @@ public static class OrderEndpoints
 
         appgroup.MapPost("/create", async (ClaimsPrincipal claims , [FromBody] CreateOrderDto orderdto) =>
         {
-            
-        
            using var channel = GrpcChannel.ForAddress("http://localhost:5048");
            
            var client = new OrderServiceGrpc.OrderServiceGrpcClient(channel);
@@ -44,9 +42,9 @@ public static class OrderEndpoints
                claims.FindFirst("email")?.Value ??
                claims.FindFirst(ClaimTypes.Email)?.Value ??
                claims.FindFirst("emailaddress")?.Value ??
-               "arpanparajuli07@gmail.com";
+               "arpanparajuli08@gmail.com";
            
-           var name  = claims.FindFirst("name")?.Value ?? "guestuser";
+           var name  = claims.FindFirst("name")?.Value ?? "guestuser1";
            
 
               
